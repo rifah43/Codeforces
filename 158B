@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        n=sc.nextInt();
+        int i;
+        int tw=0;
+        int o=0;
+        int th=0;
+        int f=0;
+        int s[];
+        s= new int[n];
+        for(i=0;i<n;i++)
+        {
+            s[i]=sc.nextInt();
+            if(s[i]==4)
+            {
+                f++;
+            }
+            else if(s[i]==3)
+            {
+                th++;
+            }
+            else if(s[i]==2)
+            {
+                tw++;
+            }
+            else
+            {
+                o++;
+            }
+        }
+        int taxi=0;
+        taxi= taxi+f;
+        taxi= taxi+(tw/2);
+        tw= tw%2;
+        if(th>=o)
+        {
+            taxi=taxi+o;
+            th= th-o;
+            o=0;
+            taxi= taxi+th;
+        }
+        else {
+            taxi = taxi + th;
+            o = o - th;
+            taxi = taxi + (o / 4);
+            o = o % 4;
+            th = 0;
+        }
+        if(tw*2+o<=4 && (o+2*tw>0))
+        {
+            taxi=taxi+1;
+            tw=0;
+            o=0;
+        }
+        else if(tw==1 && o==3)
+        {
+            taxi=taxi+2;
+            o=0;
+            tw=0;
+        }
+        System.out.println(taxi);
+    }
+}
