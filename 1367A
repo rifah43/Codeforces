@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char[] a;
+        int i;
+        int j;
+        int k;
+        int n=sc.nextInt();
+        for(k=1;k<=n;k++){
+            a= sc.next().toCharArray();
+            int x=0;
+            char[] b= new char[a.length];
+            for (i = 0, j = 0; i < a.length && j <= i; i++, j++) {
+                if (i >= 2) {
+                    i++;
+                }
+                b[j] = a[i];
+                x++;
+            }
+            for(i=0;i<x;i++) System.out.print(b[i]);
+            System.out.print('\n');
+        }
+    }
+}
