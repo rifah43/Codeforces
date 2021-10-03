@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k= sc.nextInt();
+        int r= sc.nextInt();
+        int x=1;
+        int p=1;
+        boolean a=true;
+        while(a)
+        {
+            p=k*x;
+            if(p%10==0 || p%10==r)
+            {
+                a= false;
+                break;
+            }
+            x++;
+        }
+        System.out.println(x);
+    }
+}
